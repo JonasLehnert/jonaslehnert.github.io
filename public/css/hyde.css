@@ -87,7 +87,8 @@ html {
 }
 
 .sidebar-about img {
-  border-radius: 100%;
+  border-radius: 6px;
+  border: none;
 }
 
 /* Sidebar nav */
