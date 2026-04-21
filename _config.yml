@@ -13,7 +13,7 @@ title:            Jonas Lehnert
 tagline:          "Personal Website"
 description:      "Postdoctoral fellow at the University of Ottawa"
 url:              http://jonaslehnert.github.io
-baseurl:          /
+baseurl:          ""
 
 paginate:         3
 
