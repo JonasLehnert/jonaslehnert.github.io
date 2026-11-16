@@ -21,4 +21,21 @@
 
   <!-- Icons -->
   <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon.ico">
+  <!-- Structured data: tells search engines who this page is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jonas Lehnert",
+    "url": "{{ site.url }}",
+    "image": "{{ site.url }}/public/images/profile.jpg",
+    "jobTitle": "Postdoctoral Fellow",
+    "description": "{{ site.description }}",
+    "worksFor": { "@type": "Organization", "name": "University of Ottawa" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "McGill University" },
+    "knowsAbout": ["Neuroscience", "Serotonin", "Visual attention", "Decision making", "Computational neuroscience"],
+    "sameAs": ["{{ site.scholar }}", "{{ site.linkedin }}", "{{ site.github }}"]
+  }
+  </script>
+  <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
 </head>
