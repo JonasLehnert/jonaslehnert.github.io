@@ -1,5 +1,5 @@
 # Dependencies
-markdown:         redcarpet
+markdown:         kramdown
 highlighter:      rouge
 
 # Permalinks
@@ -10,8 +10,8 @@ plugins:          [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap, jemoji]
 
 # Setup
 title:            Jonas Lehnert
-tagline:          "Personal Website"
-description:      "Neuroscientist studying serotonin, attention and value-based decision making. Postdoctoral fellow, University of Ottawa."
+tagline:          "Neuroscientist"
+description:      "Neuroscientist studying serotonin, attention and value-based decision making."
 url:              https://jonaslehnert.github.io
 baseurl:          ""
 
@@ -20,3 +20,5 @@ paginate:         3
 email: jlehnert@uottawa.ca
 linkedin: https://www.linkedin.com/in/jonaslehnert
 github: https://github.com/jonaslehnert
+scholar: https://scholar.google.ca/citations?user=DEyCWE8AAAAJ
+role: "Postdoctoral Fellow · University of Ottawa"

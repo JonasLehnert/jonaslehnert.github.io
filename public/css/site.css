@@ -1,0 +1,253 @@
+/* ------------------------------------------------------------------
+   Jonas Lehnert — site styles
+   A light, modernised take on the Hyde sidebar layout.
+   ------------------------------------------------------------------ */
+
+:root {
+  --bg: #ffffff;
+  --sidebar-bg: #f5f4f0;
+  --text: #1c1c1e;
+  --muted: #5f6368;
+  --faint: #e6e4de;
+  --accent: #0e6b74;
+  --accent-soft: #e3f0f1;
+  --card: #ffffff;
+  --sidebar-width: 19rem;
+  --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131416;
+    --sidebar-bg: #1b1c1f;
+    --text: #e8e8ea;
+    --muted: #a0a3a8;
+    --faint: #2c2e32;
+    --accent: #5cc3cc;
+    --accent-soft: #1d3436;
+    --card: #1b1c1f;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ---------- Layout ---------- */
+
+.layout { min-height: 100vh; }
+
+.sidebar {
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid var(--faint);
+  padding: 2.25rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.content {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+@media (min-width: 60em) {
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: var(--sidebar-width);
+    border-bottom: none;
+    border-right: 1px solid var(--faint);
+    padding: 3.5rem 2.25rem 2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+  }
+  .content {
+    margin-left: var(--sidebar-width);
+    margin-right: 0;
+    max-width: none;
+    padding: 4rem clamp(2rem, 6vw, 6rem) 5rem;
+  }
+  .content > * { max-width: 46rem; }
+}
+
+/* ---------- Sidebar ---------- */
+
+.profile-photo {
+  width: 9.5rem;
+  height: 9.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--faint);
+}
+@media (min-width: 60em) {
+  .profile-photo { width: 11rem; height: 11rem; margin: 0 0 1.5rem; }
+}
+
+.name {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.35rem;
+}
+
+.role {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.tagline {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+@media (min-width: 60em) {
+  .links { flex-direction: column; gap: 0.15rem; }
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+@media (min-width: 60em) {
+  .links a { margin-left: -0.75rem; }
+}
+.links a:hover, .links a:focus-visible {
+  background: var(--accent-soft);
+  color: var(--accent);
+  text-decoration: none;
+}
+.links svg { width: 1.1rem; height: 1.1rem; fill: currentColor; flex: none; }
+
+.footer {
+  margin: 2rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ---------- Content ---------- */
+
+.section + .section { margin-top: 3.5rem; }
+
+.section h2 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.55rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--faint);
+}
+
+.section p { margin: 0 0 1rem; }
+
+/* ---------- Publications ---------- */
+
+.publication {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0;
+}
+.publication + .publication { border-top: 1px solid var(--faint); }
+
+@media (min-width: 40em) {
+  .publication.has-img { grid-template-columns: 13rem 1fr; gap: 1.5rem; }
+}
+
+.publication-img {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--faint);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  overflow: hidden;
+  align-self: start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.publication-img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.publication-img img { width: 100%; border-radius: 6px; }
+
+.publication .pub-title {
+  font-weight: 600;
+  font-size: 1.02rem;
+  line-height: 1.4;
+  margin: 0 0 0.35rem;
+}
+.pub-title a { color: var(--text); }
+.pub-title a:hover { color: var(--accent); }
+
+.publication .pub-authors {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 0.35rem;
+}
+.pub-authors .me { color: var(--text); font-weight: 600; }
+
+.publication .pub-venue {
+  font-size: 0.88rem;
+  margin: 0 0 0.6rem;
+}
+.pub-venue i { font-style: italic; }
+
+.pub-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pub-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--faint);
+  border-radius: 999px;
+  color: var(--muted);
+}
+.pub-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- Generic pages (404 etc.) ---------- */
+
+.page-title {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
