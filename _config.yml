@@ -11,8 +11,8 @@ plugins:          [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap, jemoji]
 # Setup
 title:            Jonas Lehnert
 tagline:          "Personal Website"
-description:      "Postdoctoral fellow at the University of Ottawa"
-url:              http://jonaslehnert.github.io
+description:      "Neuroscientist studying serotonin, attention and value-based decision making. Postdoctoral fellow, University of Ottawa."
+url:              https://jonaslehnert.github.io
 baseurl:          ""
 
 paginate:         3
